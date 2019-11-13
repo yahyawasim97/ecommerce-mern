@@ -3,8 +3,8 @@ import axios from 'axios';
 import Loader from './Loader';
 import { URL } from '../constants';
 import {Link} from 'react-router-dom';
-function Shop(){
-
+function Shop(props){
+    console.log(props)
     const [products,setProducts] =useState([]);
     const [loading,setLoading] =useState(true);
     const [error,setError] =useState(null);
