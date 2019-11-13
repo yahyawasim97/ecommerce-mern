@@ -16,3 +16,20 @@ exports.findAll = async(req, res,next) => {
         });
     }   
 };
+
+exports.findOne = async(req,res,next)=>{
+    try{
+        let id = req.params.id;
+        if(id){
+            const product = await Product.find({_id:id});
+            res.status(200).send(product[0]);
+        }else{
+            res.status(400).send('Please Provide id of the product');
+        }
+       
+    }catch(err){
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving Products."
+        });
+    }  
+}

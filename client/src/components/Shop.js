@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import Loader from './Loader';
 import { URL } from '../constants';
+import {Link} from 'react-router-dom';
 function Shop(){
 
     const [products,setProducts] =useState([]);
@@ -35,7 +36,7 @@ function Shop(){
     function getPagination(){
         let pagination = [];
         for(let a=1;a<=total;a++){
-            pagination.push(<li onClick={()=>setPage(a)} className={page===a?"active":""}><span>{a}</span></li>);
+            pagination.push(<li key={a} onClick={()=>setPage(a)} className={page===a?"active":""}><span>{a}</span></li>);
         }
         return pagination;
     }
@@ -45,7 +46,7 @@ function Shop(){
                 <div className="row">
                     {loading?<Loader/>:error?<div className="alert alert-danger" role="alert">
                     {error}
-                    </div>:products.map((product,index)=>{return(<div className="col-sm col-md-6 col-lg-3">
+                    </div>:products.map((product,index)=>{return(<div key={index} className="col-sm col-md-6 col-lg-3">
                         <div className="product">
                             <div className="img-prod"><img className="img-fluid" src={product.imageUri} alt="Colorlib Template"/>
                             </div>
@@ -67,7 +68,7 @@ function Shop(){
                                 </div>
                                 <hr/>
                                 <div className="bottom-area d-flex">
-                                    <div className="add-to-cart"><span>Add to cart <i className="ion-ios-add ml-1"></i></span></div>
+                                    <Link to={`/product/${product._id}`} className="add-to-cart"><span>View Detail<i className="ion-ios-add ml-1"></i></span></Link>
                                     <div href="#" className="ml-auto"><span><i className="ion-ios-heart-empty"></i></span></div>
                                 </div>
                             </div>
