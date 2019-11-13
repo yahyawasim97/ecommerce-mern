@@ -16,8 +16,8 @@ function DefaultLayout(){
         <Fragment>
             <Router>
                 <Navbar/>
-                <div class="hero-wrap hero-bread" style={{backgroundImage: 'url("images/bg_6.jpg")'}}>
-                    <div class="container">
+                <div className="hero-wrap hero-bread" style={{backgroundImage: 'url("images/bg_6.jpg")'}}>
+                    <div className="container">
                         <div className="row no-gutters slider-text align-items-center justify-content-center">
                             <h1 className="mb-0 bread">Tee Shirt Collection</h1>
                         </div>
