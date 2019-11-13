@@ -7,14 +7,18 @@ function Shop(){
     const [products,setProducts] =useState([]);
     const [loading,setLoading] =useState(true);
     const [error,setError] =useState(null);
+    const [page,setPage] = useState(1);
+    const [total,setTotal] = useState(0);
     useEffect(()=>{
         fetchData();
         async function fetchData(){
             try{
-                let response = await axios.get(`${URL}/products`);
+                setLoading(true);
+                let response = await axios.get(`${URL}/products?page=${page}`);
                 if(response.status===200){
-                    if(response.data.length>0){
-                        setProducts(response.data);
+                    if(response.data.products.length>0){
+                        setProducts(response.data.products);
+                        setTotal(response.data.total);
                     }else{
                         setError('No Products Found');
                     }
@@ -26,14 +30,21 @@ function Shop(){
             }
         }
         
-    },[])
+    },[page]);
+
+    function getPagination(){
+        let pagination = [];
+        for(let a=1;a<=total;a++){
+            pagination.push(<li onClick={()=>setPage(a)} className={page===a?"active":""}><span>{a}</span></li>);
+        }
+        return pagination;
+    }
     return(
         <section className="ftco-section bg-light" style={{minHeight:'70vh'}}> 
             <div className="container-fluid">
                 <div className="row">
                     {loading?<Loader/>:error?<div className="alert alert-danger" role="alert">
                     {error}
-                    here
                     </div>:products.map((product,index)=>{return(<div className="col-sm col-md-6 col-lg-3">
                         <div className="product">
                             <div className="img-prod"><img className="img-fluid" src={product.imageUri} alt="Colorlib Template"/>
@@ -64,6 +75,15 @@ function Shop(){
                     </div>)})}
                 </div>
             </div>
+            <div class="col text-center my-3">
+            <div class="block-27">
+              <ul>
+                {
+                    getPagination()
+                }
+              </ul>
+            </div>
+          </div>
         </section>
     );
 }
