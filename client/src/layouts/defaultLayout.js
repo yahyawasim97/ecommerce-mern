@@ -9,28 +9,23 @@ import Shop from '../components/Shop';
 import GenericNotFound from '../components/GenericNotFound';
 
 function DefaultLayout(){
-    const initial_context= {
-        products:[],
-        addProducts: (data) => {setproducts(data)}
-    };
-    const ShopContext = createContext(initial_context);
-    const [products, setproducts] = useState([]);
+
     return( 
         <Fragment>
             <Router>
                 <Navbar/>
-                <div className="hero-wrap hero-bread" style={{backgroundImage: 'url("images/bg_6.jpg")'}}>
+                <div className="hero-wrap hero-bread" style={{backgroundImage: 'url("/images/bg_6.jpg")'}}>
                     <div className="container">
                         <div className="row no-gutters slider-text align-items-center justify-content-center">
-                            <h1 className="mb-0 bread">{products.toString(  )}</h1>
+                            <h1 className="mb-0 bread">Tee Shirt Shop</h1>
                         </div>
                     </div>
                 </div>
                 <Switch>
                     <Route exact path='/' component={ Shop } />
-                    <ContextRoute exact path='/product/:id' contextComponent={ShopContext} component={ Product } />
-                    <ContextRoute exact path='/cart' contextComponent={ShopContext} component={ Cart } />
-                    <ContextRoute exact path='/checkout' contextComponent={ShopContext} component={ Checkout } />
+                    <Route exact path='/product/:id' component={ Product } />
+                    <Route exact path='/cart'  component={ Cart } />
+                    <Route exact path='/checkout'  component={ Checkout } />
                     <Route component={GenericNotFound} />
                 </Switch>
             </Router>
