@@ -43,7 +43,7 @@ function Shop(props){
     return(
         <section className="ftco-section bg-light" style={{minHeight:'70vh'}}> 
             <div className="container-fluid">
-                <div className="row">
+                <div className="row justify-content-center">
                     {loading?<Loader/>:error?<div className="alert alert-danger" role="alert">
                     {error}
                     </div>:products.map((product,index)=>{return(<div key={index} className="col-sm col-md-6 col-lg-3">
