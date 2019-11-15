@@ -29,6 +29,14 @@ const orderSchema = new Schema({
     type: Number,
     required: true
   },
+  country:{
+    type:String,
+    required:true
+  },
+  city:{
+    type:String,
+    required:true
+  }
   }
 );
 

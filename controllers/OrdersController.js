@@ -18,7 +18,9 @@ exports.create = async(req, res,next) => {
         name: req.body.name,
         phone: req.body.phone,
         address: req.body.address,
-        amount:total
+        amount:total,
+        country:req.body.country,
+        city:req.body.city
     });
 
     try{

@@ -7,6 +7,7 @@ import Checkout from '../components/Checkout';
 import ContextRoute from '../components/ContextRoute';
 import Shop from '../components/Shop';
 import GenericNotFound from '../components/GenericNotFound';
+import Confirmed from '../components/Confirmed';
 
 function DefaultLayout(){
 

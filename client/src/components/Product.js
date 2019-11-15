@@ -20,7 +20,7 @@ function Product(){
                 let response = await axios.get(`${URL}/product/${id}`);
                 if(response.status===200){
                         setProduct(response.data);
-						setSize(response.data.size.first);
+						setSize(response.data.size[0]);
 						setColor(response.data.color[0]);
                 }
                 setLoading(false);
@@ -47,7 +47,7 @@ function Product(){
             
     	<div className="container">
     		<div className="row">
-                {loading?<Loader/>:error?<div classNameName="alert alert-danger" role="alert">
+                {loading?<Loader/>:error?<div classNameName="alert alert-danger w-100 text-center" role="alert">
                     {error}
                     </div>:<Fragment><div className="col-lg-6 mb-5 ">
     				<div href="images/menu-2.jpg" className="image-popup"><img src={product.imageUri} className="img-fluid" alt="Colorlib Template"/></div>
@@ -71,8 +71,8 @@ function Product(){
 								<div className="form-group d-flex">
 		              <div className="select-wrap">
 	                  <div className="icon"><span className="ion-ios-arrow-down"></span></div>
-	                  <select name="" id="" className="form-control" onChange={(e)=>setSize(e.target.value)}>
-                          {product.size.map((size,index)=><option key={index} value={size}>{size}</option>)}
+	                  <select name="" id="" className="form-control" defaultValue={size} onChange={(e)=>{setSize(e.target.value)}}>
+                          {product.size.map((s,index)=><option key={index} value={s}>{s}</option>)}
                     </select>
 	                </div>
 		            </div>

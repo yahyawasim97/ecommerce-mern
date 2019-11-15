@@ -4,7 +4,6 @@ import Loader from './Loader';
 import { URL } from '../constants';
 import {Link} from 'react-router-dom';
 function Shop(props){
-    console.log(props)
     const [products,setProducts] =useState([]);
     const [loading,setLoading] =useState(true);
     const [error,setError] =useState(null);
@@ -44,7 +43,7 @@ function Shop(props){
         <section className="ftco-section bg-light" style={{minHeight:'70vh'}}> 
             <div className="container-fluid">
                 <div className="row justify-content-center">
-                    {loading?<Loader/>:error?<div className="alert alert-danger" role="alert">
+                    {loading?<Loader/>:error?<div className="alert alert-danger w-100 text-center" role="alert">
                     {error}
                     </div>:products.map((product,index)=>{return(<div key={index} className="col-sm col-md-6 col-lg-3">
                         <div className="product">

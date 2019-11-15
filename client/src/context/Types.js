@@ -1,4 +1,4 @@
 export const ADD_PRODUCT ='add_product';
 export const REMOVE_PRODUCT = 'remove_product';
-export const INCREASE_QUANTITY = 'increase_quantity';
-export const DECREASE_QUANTITY = 'decrease_quantity';
+export const UPDATE_QUANTITY = 'update_quantity';
+export const EMPTY_CART= 'empty_cart';
