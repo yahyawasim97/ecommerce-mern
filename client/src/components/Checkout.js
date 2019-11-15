@@ -69,7 +69,7 @@ const Checkout =()=>{
                 <div className="row justify-content-center">
                     <div className="col-md-12">
 		            	<div className="form-group">
-		            		<label for="country">State / Country</label>
+		            		<label htmlFor="country">State / Country</label>
 		            		<div className="select-wrap">
 		                  <div className="icon"><span className="ion-ios-arrow-down"></span></div>
 		                  <select name="" id="" className="form-control" onChange={(e)=>setCountry(e.target.value)} value={country} defaultValue={country}>

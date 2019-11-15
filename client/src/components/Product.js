@@ -53,8 +53,8 @@ function Product(){
 						<div className="image-popup"><img src={product.imageUri} className="img-fluid" alt="Ecom Template"/></div>
 					</div>
 					<div className="col-lg-6 product-details pl-md-5 ">
-						<nav class="navbar navbar-light bg-light p-0">
-							<Link to="/" class="navbar-brand" > {'< Back'}</Link>
+						<nav className="navbar navbar-light bg-light p-0">
+							<Link to="/" className="navbar-brand" > {'< Back'}</Link>
 						</nav>
 						<h3>{product.name}</h3>
 						<p className="price"><span>Rs. {product.price}</span></p>

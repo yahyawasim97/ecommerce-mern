@@ -24,7 +24,7 @@ export const ProductsReducer =(state=initialState ,action)=>{
             return {...state,products:updatedProducts}
         case REMOVE_PRODUCT:
             const removedProducts =  [...state.products];
-            const removeIndex = removedProducts.findIndex(p=>p.product.productId ===  action.payload.product.productId);
+            const removeIndex = removedProducts.findIndex(p=>p.product.productId ===  action.payload.product.productId &&  p.product.color ===  action.payload.product.color && p.product.size ===  action.payload.product.size);
             if(removeIndex>-1){
                 removedProducts.splice(removeIndex,1)
             }
