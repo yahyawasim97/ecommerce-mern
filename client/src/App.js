@@ -4,8 +4,10 @@ import * as Reducer from './context/ProductsReducer';
 import ShopContext from './context/ShopContext';
 import { addProduct, updateQuantity, removeProduct, emptyCart } from './context/ProductActions';
 function App() {
+  //reducer created
   const [state, dispatch] = useReducer(Reducer.ProductsReducer, Reducer.initialState);
   return (
+  // Context Used to pass global state to routing
     <ShopContext.Provider
       value={{
         cartProducts:state.products,

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import Loader from './Loader';
 import { URL } from '../constants';
-import {Link} from 'react-router-dom';
+import ShopItem from './ShopItem';
 function Shop(props){
     const [products,setProducts] =useState([]);
     const [loading,setLoading] =useState(true);
@@ -45,38 +45,11 @@ function Shop(props){
                 <div className="row justify-content-center">
                     {loading?<Loader/>:error?<div className="alert alert-danger w-100 text-center" role="alert">
                     {error}
-                    </div>:products.map((product,index)=>{return(<div key={index} className="col-sm col-md-6 col-lg-3">
-                        <div className="product">
-                            <div className="img-prod"><img className="img-fluid" src={product.imageUri} alt="Colorlib Template"/>
-                            </div>
-                            <div className="text py-3 px-3">
-                                <h3><a href="#">{product.name}</a></h3>
-                                <div className="d-flex">
-                                    <div className="pricing">
-                                        <p className="price"><span className="mr-2">Rs.{product.price}</span></p>
-                                    </div>
-                                    <div className="rating">
-                                        <p className="text-right">
-                                            <span className="ion-ios-star-outline"></span>
-                                            <span className="ion-ios-star-outline"></span>
-                                            <span className="ion-ios-star-outline"></span>
-                                            <span className="ion-ios-star-outline"></span>
-                                            <span className="ion-ios-star-outline"></span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div className="bottom-area d-flex">
-                                    <Link to={`/product/${product._id}`} className="add-to-cart"><span>View Detail<i className="ion-ios-add ml-1"></i></span></Link>
-                                    <div href="#" className="ml-auto"><span><i className="ion-ios-heart-empty"></i></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>)})}
+                    </div>:products.map((product,index)=><ShopItem key={index} product={product}/>)}
                 </div>
             </div>
-            <div class="col text-center my-3">
-            <div class="block-27">
+            <div className="col text-center my-3">
+            <div className="block-27">
               <ul>
                 {
                     getPagination()

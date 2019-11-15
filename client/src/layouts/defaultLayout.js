@@ -1,19 +1,18 @@
-import React,{Fragment,createContext,useState   } from 'react';
+import React,{Fragment} from 'react';
 import Navbar from '../components/NavBar';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Product from '../components/Product';
 import Cart from '../components/Cart';
 import Checkout from '../components/Checkout';
-import ContextRoute from '../components/ContextRoute';
 import Shop from '../components/Shop';
 import GenericNotFound from '../components/GenericNotFound';
-import Confirmed from '../components/Confirmed';
 
 function DefaultLayout(){
 
     return( 
         <Fragment>
             <Router>
+                {/* Generic Navbar */}
                 <Navbar/>
                 <div className="hero-wrap hero-bread" style={{backgroundImage: 'url("/images/bg_6.jpg")'}}>
                     <div className="container">

@@ -5,7 +5,9 @@ import Axios from 'axios';
 import { URL } from '../constants';
 import Loader from './Loader';
 import Confirmed from './Confirmed';
-const Checkout =(props)=>{
+import TotalPrice from './TotalPrice';
+const Checkout =()=>{
+    //useStateHooks to set state based values which re-render on change
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [country, setCountry] = useState('Pakistan');
@@ -17,14 +19,9 @@ const Checkout =(props)=>{
     const [error,setError] = useState('');
     const [order,setOrder] = useState(false);
     const context = useContext(ShopContext);
-    function getTotalPrice(){
-        let total  =0;
-        context.cartProducts.forEach(item=>{
-            total +=(parseInt(item.product.price) * parseInt(item.quantity));
-        })
-        return total;
-    }
 
+
+    //To create an order through api
     async function handleSubmit(e){
         e.preventDefault();
         if(email && country && city && phone && address && firstName && lastName){
@@ -50,7 +47,7 @@ const Checkout =(props)=>{
         }
 
     }
-
+    //Render Component When Order has been created
     if(order){
         return<Confirmed/>
     }
@@ -98,23 +95,7 @@ const Checkout =(props)=>{
             <div className="col-md-4 d-flex" style={{height:'40vh'}}>
                 <div className="cart-detail cart-total bg-light p-3 p-md-4">
                     <h3 className="billing-heading mb-4">Cart Total</h3>
-                    <p className="d-flex">
-                        <span>Subtotal</span>
-                        <span>Rs. 0.00</span>
-                    </p>
-                    <p className="d-flex">
-                        <span>Delivery</span>
-                        <span>$0.00</span>
-                    </p>
-                    <p className="d-flex">
-                        <span>Discount</span>
-                        <span>Rs. 0.00</span>
-                    </p>
-                    <hr/>
-                    <p classNameName="d-flex total-price">
-                        <span>Total</span>
-                        <span>Rs. {getTotalPrice()}</span>
-                    </p>
+                    <TotalPrice/>
                     {context.cartProducts.length>0 &&<p className="my-3">{loading? <Loader/>:<input type="submit" className="btn btn-primary py-3 px-4" value="Place an order"/>}</p>}
                                     
                 </div>

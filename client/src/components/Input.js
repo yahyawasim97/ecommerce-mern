@@ -1,4 +1,5 @@
 import React from 'react';
+//Generic Input component being used
 const Input =({label,setInput,value})=>{
     return(
         <div class="col-md-6">

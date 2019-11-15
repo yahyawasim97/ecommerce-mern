@@ -1,7 +1,6 @@
-import React,{useContext} from 'react';
 import { ADD_PRODUCT, UPDATE_QUANTITY, REMOVE_PRODUCT, EMPTY_CART } from "./Types";
 
-
+//action used for useReducer hook
 export const addProduct=(product)=>{
     return{
         type:ADD_PRODUCT,

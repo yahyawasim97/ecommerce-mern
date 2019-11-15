@@ -30,7 +30,7 @@ function Product(){
             }
         }
         
-	},[]);
+	});
 	function addToCart(){
 		context.addCartProduct({
 			productId:product._id,
@@ -50,33 +50,33 @@ function Product(){
                 {loading?<Loader/>:error?<div classNameName="alert alert-danger w-100 text-center" role="alert">
                     {error}
                     </div>:<Fragment><div className="col-lg-6 mb-5 ">
-    				<div href="images/menu-2.jpg" className="image-popup"><img src={product.imageUri} className="img-fluid" alt="Colorlib Template"/></div>
-    			</div>
-    			<div className="col-lg-6 product-details pl-md-5 ">
-                    <nav class="navbar navbar-light bg-light p-0">
-                        <Link to="/" class="navbar-brand" > {'< Back'}</Link>
-                    </nav>
-    				<h3>{product.name}</h3>
-                    <p className="price"><span>Rs. {product.price}</span></p>
-    				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-    				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
-						</p>
-					<div className="row my-2">
-						{product.color.map((c,index)=>{
-							return <div key={index} onClick={()=>setColor(c)} className="m-3" style={{height:60,width:60,background:c,border:color===c?'5px solid #f1b8c4':'none'}}></div>
-						})}
+						<div className="image-popup"><img src={product.imageUri} className="img-fluid" alt="Ecom Template"/></div>
 					</div>
-					<div className="row mt-4">
-							<div className="col-md-6">
-								<div className="form-group d-flex">
-		              <div className="select-wrap">
-	                  <div className="icon"><span className="ion-ios-arrow-down"></span></div>
-	                  <select name="" id="" className="form-control" defaultValue={size} onChange={(e)=>{setSize(e.target.value)}}>
-                          {product.size.map((s,index)=><option key={index} value={s}>{s}</option>)}
-                    </select>
-	                </div>
-		            </div>
-				</div>
+					<div className="col-lg-6 product-details pl-md-5 ">
+						<nav class="navbar navbar-light bg-light p-0">
+							<Link to="/" class="navbar-brand" > {'< Back'}</Link>
+						</nav>
+						<h3>{product.name}</h3>
+						<p className="price"><span>Rs. {product.price}</span></p>
+						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+						<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
+							</p>
+						<div className="row my-2">
+							{product.color.map((c,index)=>{
+								return <div key={index} onClick={()=>setColor(c)} className="m-3" style={{height:60,width:60,background:c,border:color===c?'5px solid #f1b8c4':'none'}}></div>
+							})}
+						</div>
+						<div className="row mt-4">
+								<div className="col-md-6">
+									<div className="form-group d-flex">
+						<div className="select-wrap">
+						<div className="icon"><span className="ion-ios-arrow-down"></span></div>
+						<select name="" id="" className="form-control" defaultValue={size} onChange={(e)=>{setSize(e.target.value)}}>
+							{product.size.map((s,index)=><option key={index} value={s}>{s}</option>)}
+						</select>
+						</div>
+						</div>
+					</div>
 				
 							
           	</div>

@@ -1,5 +1,5 @@
 import { ADD_PRODUCT, UPDATE_QUANTITY, REMOVE_PRODUCT, EMPTY_CART } from "./Types"
-
+//reducer created using use reducer both inital state and reducer and passed onto usereducer()
 export const initialState={
     products:[]
 }
