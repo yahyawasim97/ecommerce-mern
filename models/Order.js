@@ -2,10 +2,43 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+//Cart Product Schema
+const cartProductSchema = new Schema({
+  productId: {
+    type:String,
+    required:true
+  },
+  price: {
+    type:String,
+    required:true
+  },
+  name: {
+    type:String,
+    required:true
+  },
+  color:{
+    type:String,
+    required:true
+  },
+  size:{
+    type:String,
+    required:true
+  },
+  imageUri: {
+    type:String,
+    required:true
+  }
+},
+//As Id is already being saved which can be reference later
+//Assosiation is not create as order history should have the characteristics on which it was sold
+{ _id : false })
+
+//Order Schema
 const orderSchema = new Schema({
   products: [
     {
-      product: { type: Object, required: true },
+      //Nested Schema
+      product: cartProductSchema,
       quantity: { type: Number, required: true }
     }
   ],
@@ -39,5 +72,8 @@ const orderSchema = new Schema({
   }
   }
 );
+
+
+
 
 module.exports = mongoose.model('Order', orderSchema);

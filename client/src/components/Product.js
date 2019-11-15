@@ -5,7 +5,7 @@ import { URL } from '../constants';
 import Loader from './Loader';
 import ShopContext from '../context/ShopContext';
 function Product(){
-    let {id} =useParams();
+    const {id} =useParams();
     const [product,setProduct] =useState([]);
     const [loading,setLoading] =useState(true);
 	const [error,setError] =useState(null);
@@ -17,7 +17,7 @@ function Product(){
         async function fetchData(){
             try{
                 setLoading(true);
-                let response = await axios.get(`${URL}/product/${id}`);
+                let response = await axios.get(`${URL}/product/detail/${id}`);
                 if(response.status===200){
                         setProduct(response.data);
 						setSize(response.data.size[0]);
@@ -30,7 +30,7 @@ function Product(){
             }
         }
         
-	});
+	},[id]);
 	function addToCart(){
 		context.addCartProduct({
 			productId:product._id,
