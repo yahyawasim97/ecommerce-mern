@@ -1,11 +1,14 @@
-import React,{useReducer} from 'react';
+import React from 'react';
 import DefaultLayout from './layouts/defaultLayout';
 import * as Reducer from './context/ProductsReducer';
 import ShopContext from './context/ShopContext';
+import createPersistedReducer from 'use-persisted-reducer';
 import { addProduct, updateQuantity, removeProduct, emptyCart } from './context/ProductActions';
 function App() {
+  //To persist user state in reducer
+  const usePersistedReducer = createPersistedReducer('state');
   //reducer created
-  const [state, dispatch] = useReducer(Reducer.ProductsReducer, Reducer.initialState);
+  const [state, dispatch] = usePersistedReducer(Reducer.ProductsReducer, Reducer.initialState);
   return (
   // Context Used to pass global state to routing
     <ShopContext.Provider
