@@ -10,7 +10,7 @@ To get started developing right away:
 `$ https://github.com/yahyawasim97/ecommerce-mern`
 
 2. Install Dependencies:
-`$ npm start`
+`$ npm install`
 
 2. Start Application:
 `$ npm start`
